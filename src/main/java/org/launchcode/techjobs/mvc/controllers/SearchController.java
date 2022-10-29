@@ -29,7 +29,10 @@ public class SearchController {
     public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
         model.addAttribute("columns", columnChoices);
         ArrayList<Job> jobs;
-        if (searchType.equals("all")) { //if I take out this if, TestTask 4 passes but TestTask3 fails >:(
+        if (searchType.equals("all") && searchTerm != null) { //This breaks Test 3, but leaving this first case out breaks Test 4!
+            jobs = JobData.findByColumnAndValue(searchType, searchTerm);
+            model.addAttribute("title", "Jobs with " + columnChoices.get(searchType) + ": " + searchTerm);
+        } else if (searchType.equals("all")) {
             jobs = JobData.findAll();
             model.addAttribute("title", "All Jobs");
         } else {
