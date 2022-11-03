@@ -1,17 +1,18 @@
 package org.launchcode.techjobs.mvc.controllers;
 
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.ui.Model;
 
 import java.util.HashMap;
 
 public class TechJobsController {
 
     static HashMap<String, String> actionChoices = new HashMap<>();
-    actionChoices.put("search", "Search");
-    actionChoices.put("list", "List");
 
-    static HashMap<> getActionChoices(@ModelAttribute Hashmap<> actions) {
-        return actions;
+    static String getActionChoices(Model model) {
+        actionChoices.put("search", "Search");
+        actionChoices.put("list", "List");
+        model.addAttribute("actions", actionChoices);
+        return "";
     }
 
 }

@@ -16,7 +16,7 @@
             <td>ID</td><td th:text="${job.id}"></td>
         </tr>
         <tr>
-            <td>Name</td><td th:text="${job.name}"></td>
+            <td>Name</td><td th:text="${#strings.capitalizeWords(job.name)}"></td>
         </tr>
         <tr>
             <td>Employer</td><td><a th:href="@{/list/jobs(column=employer,value=${job.employer})}"
