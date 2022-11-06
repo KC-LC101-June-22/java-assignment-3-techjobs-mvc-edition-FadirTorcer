@@ -19,8 +19,11 @@
                 <a th:href="@{/}" class="navbar-brand">TechJobs</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav" th:each="option : ${actions}">
-                    <li th:href = "@{/{path}(path=${option.key})}" th:text="${option.value}"></li>
+                <ul class="nav navbar-nav">
+                    <li th:each="option : ${actions}">
+                        <a th:href = "@{'/' + ${option.key}}" th:text="${option.value}">
+                        </a>
+                    </li>
                     <!--<li><a th:href="@{/search}">Search</a></li>
                     <li><a th:href="@{/list}">List</a></li>-->
                 </ul>
