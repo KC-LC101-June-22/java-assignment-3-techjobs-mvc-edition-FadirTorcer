@@ -20,7 +20,7 @@ public class SearchController extends TechJobsController{
 
     @GetMapping(value = "")
     public String search(Model model, @ModelAttribute String searchChoice, @ModelAttribute String textBox) {
-        model.addAttribute("columns", columnChoices);
+//        model.addAttribute("columns", columnChoices);
         model.addAttribute("searchChoice", "all");
         model.addAttribute("textBox", "");
         return "search";
@@ -29,7 +29,7 @@ public class SearchController extends TechJobsController{
     // TODO #3 - Create a handler to process a search request and render the updated search view.
     @PostMapping(value = "results")
     public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
-        model.addAttribute("columns", columnChoices);
+//        model.addAttribute("columns", columnChoices);
         model.addAttribute("searchChoice", searchType);
         model.addAttribute("textBox", searchTerm);
         ArrayList<Job> jobs;

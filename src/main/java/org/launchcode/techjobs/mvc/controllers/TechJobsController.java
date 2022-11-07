@@ -9,12 +9,23 @@ public class TechJobsController {
 
     static HashMap<String, String> actionChoices = new HashMap<>();
 
+    static HashMap<String, String> columnChoices = new HashMap<>();
+
     @ModelAttribute ("actions")
     static HashMap<String, String> getActionChoices() {
         actionChoices.put("search", "Search");
         actionChoices.put("list", "List");
-        //model.addAttribute("actions", actionChoices);
         return actionChoices;
+    }
+
+    @ModelAttribute ("columns")
+    static HashMap<String, String> getColumnChoices() {
+        columnChoices.put("all", "All");
+        columnChoices.put("employer", "Employer");
+        columnChoices.put("location", "Location");
+        columnChoices.put("positionType", "Position Type");
+        columnChoices.put("coreCompetency", "Skill");
+        return columnChoices;
     }
 
 }
